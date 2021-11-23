@@ -15,7 +15,7 @@ RUN \
     https://github.com/prometheus/jmx_exporter.git \
   && cd jmx_exporter \
   && git rev-parse HEAD \
-  mvn clean package
+  && mvn clean package
 
 FROM adoptopenjdk:11.0.10_9-jre-hotspot
 COPY --from=build /jmx_exporter/jmx_prometheus_javaagent/target/jmx_prometheus_javaagent-*.jar /opt/jmx_exporter/
