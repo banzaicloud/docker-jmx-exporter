@@ -46,7 +46,7 @@ jobs:
       - name: Build jmx-exporter
         uses: docker/build-push-action@v2
         with:
-          tags: ghcr.io/banzaicloud/jmx-exporter:${{ steps.imagetag.outputs.value }}
+          tags: ghcr.io/banzaicloud/jmx-javaagent:${{ steps.imagetag.outputs.value }}
           file: Dockerfile
           platforms: ${{ env.PLATFORMS }}
           push: true
