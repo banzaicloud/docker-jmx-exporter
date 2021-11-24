@@ -1,4 +1,4 @@
-FROM maven:3.6.3-adoptopenjdk-11 as build
+FROM maven:3.8.4-eclipse-temurin-11 as build
 ARG VERSION=0.16.1
 WORKDIR /
 USER root
