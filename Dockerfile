@@ -17,8 +17,6 @@ RUN \
   && git rev-parse HEAD \
   && mvn clean package
 
-FROM eclipse-temurin:11.0.13_8-jre-alpine
+FROM busybox:latest
 COPY --from=build /jmx_exporter/jmx_prometheus_javaagent/target/jmx_prometheus_javaagent-*.jar /opt/jmx_exporter/
 RUN ln -s /opt/jmx_exporter/jmx_prometheus_javaagent-*.jar /jmx_prometheus_javaagent.jar
-
-CMD ["/bin/bash"]
