@@ -7,7 +7,7 @@ on:
       - "[0-9].[0-9]+.[0-9]+*"
   # pull_request:
 env:
-  PLATFORMS: linux/amd64
+  PLATFORMS: linux/amd64,linux/arm64
 jobs:
   docker:
     name: Docker
@@ -46,7 +46,7 @@ jobs:
       - name: Build jmx-exporter
         uses: docker/build-push-action@v2
         with:
-          tags: ghcr.io/banzaicloud/jmx-javaagent:${{ steps.imagetag.outputs.value }}
+          tags: ghcr.io/${{ github.repository_owner }}/jmx-javaagent:${{ steps.imagetag.outputs.value }}
           file: Dockerfile
           platforms: ${{ env.PLATFORMS }}
           push: true
